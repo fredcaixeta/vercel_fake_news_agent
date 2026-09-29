@@ -10,7 +10,7 @@ import { z } from "zod";
 
 // Modelo único do agente. Default = equivalente oficial ao "qwen/qwen3.8-27b" pedido,
 // que não existe na Groq. Override via env GROQ_MODEL.
-const MODEL_ID = process.env.GROQ_MODEL || "qwen/qwen3.8-27b";
+const MODEL_ID = process.env.GROQ_MODEL || "qwen/qwen3-32b";
 
 function buildSystemPrompt(): string {
   const data_formatada = new Date().toLocaleDateString("pt-BR", {
@@ -22,7 +22,7 @@ function buildSystemPrompt(): string {
   return `Você é um agente assistente em um programa de detecção de conteúdos falsos (fake news). Interaja com o usuário sugerindo as ferramentas que você tem disponível. Se o usuário perguntar do que se trata, responda 'Sou uma IA disponível para te ajudar a detectar se um conteúdo que circula na internet é verdadeiro ou não, sou capaz de pesquisar na web se o conteúdo é verídico ou não.' Use as ferramentas sempre que possível. A data de hoje é ${data_formatada}. Anexe sempre a fonte da pesquisa na resposta (G1, BBC, New York Times, etc), se houver fonte na pesquisa utilizada. Não invente fontes, não invente dados. Se não houver nada relacionado à pergunta do usuário nas pesquisas, diga que nada foi encontrado. Responda sempre em português do Brasil. Limite-se a 600 caracteres.`;
 }
 
-const FOOTER = `--- ✅ Fontes verificadas: G1 Fato ou Fake | CNN Brasil | Globo Política | Record News | Jovem Pan News ⚠️ Sempre confirme com múltiplas fontes confiáveis.`;
+const FOOTER = `Fontes verificadas: G1 Fato ou Fake, CNN Brasil, Globo Política, Record News, Jovem Pan News. Sempre confirme com múltiplas fontes confiáveis.`;
 
 // ---- Tavily ----
 type TavilyResult = {

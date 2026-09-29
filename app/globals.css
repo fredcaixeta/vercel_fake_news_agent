@@ -170,13 +170,60 @@ body {
   cursor: default;
 }
 
-.footer-note {
+.sources-card {
   margin-top: 14px;
-  background: var(--warn-bg);
-  border: 1px solid var(--warn-border);
-  border-radius: 12px;
-  padding: 12px 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+
+.sources-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.sources-title {
   font-size: 13px;
+  font-weight: 700;
+}
+
+.sources-sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.sources-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.source-pill {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+  border-radius: 999px;
+  padding: 7px 12px;
+}
+
+.source-pill:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.sources-warn {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--muted);
   line-height: 1.5;
 }
 

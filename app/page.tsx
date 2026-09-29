@@ -11,8 +11,13 @@ const EXAMPLES = [
   "O dólar vai acabar em breve no Brasil",
 ];
 
-const FOOTER =
-  "--- ✅ Fontes verificadas: G1 Fato ou Fake | CNN Brasil | Globo Política | Record News | Jovem Pan News ⚠️ Sempre confirme com múltiplas fontes confiáveis.";
+const SOURCES = [
+  { name: "G1 Fato ou Fake", url: "https://g1.globo.com/fato-ou-fake/" },
+  { name: "CNN Brasil", url: "https://www.cnnbrasil.com.br/" },
+  { name: "Globo Política", url: "https://g1.globo.com/politica/" },
+  { name: "Record News", url: "https://recordnews.r7.com/" },
+  { name: "Jovem Pan News", url: "https://jovempan.com.br/" },
+];
 
 function getText(message: { parts?: unknown; content?: unknown }): string {
   const m = message as {
@@ -122,7 +127,32 @@ export default function Page() {
         </form>
       </div>
 
-      <div className="footer-note">{FOOTER}</div>
+      <footer className="sources-card">
+        <div className="sources-head">
+          <span className="sources-title">✅ Fontes verificadas</span>
+          <span className="sources-sub">
+            Base da checagem do agente
+          </span>
+        </div>
+
+        <div className="sources-grid">
+          {SOURCES.map((s) => (
+            <a
+              key={s.name}
+              href={s.url}
+              target="_blank"
+              rel="noreferrer"
+              className="source-pill"
+            >
+              {s.name}
+            </a>
+          ))}
+        </div>
+
+        <div className="sources-warn">
+          ⚠️ Sempre confirme com múltiplas fontes confiáveis.
+        </div>
+      </footer>
     </div>
   );
 }
