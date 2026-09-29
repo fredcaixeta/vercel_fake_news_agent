@@ -1,0 +1,18 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Next.js / Vercel
+node_modules/
+.next/
+out/
+.env.local
+.env*.local
+*.log
