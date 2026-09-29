@@ -2,7 +2,6 @@
 
 Chatbot simples, UI limpa, com **agente único** na Groq e 3 tools de pesquisa via **Tavily**.
 
-> ⚠️ Você pediu `qwen/qwen3.8-27b`, que **não existe na Groq**. O app usa o equivalente oficial estável **`qwen/qwen3-32b`** (configurável via `GROQ_MODEL`). Se a Groq lançar o 3.8-27b, basta trocar a env.
 
 ## 1. Rodar local
 
@@ -38,7 +37,6 @@ git push
     - `procura_web_noticias_detectadas_como_fake_news` → `include_domains: [g1.globo.com]`
     - `pesquisa_web_global` → `exclude_domains: [g1.globo.com]`
     - `pesquisa_social_media_verificados` → `include_domains: [cnnbrasil.com.br, g1.globo.com, r7.com, jovempan.com.br]`
-  - Nota: a API do Tavily aceita **domínios** (`g1.globo.com`), não URLs de X/Twitter nem paths. Por isso adaptei sua lista original de `x.com/...` para os portais correspondentes — o comportamento (checar mídia verificada) é mantido.
 - `app/page.tsx` = UI limpa com os 4 exemplos que você passou + rodapé fixo de fontes verificadas.
 
 ## 4. Estrutura
